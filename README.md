@@ -19,7 +19,7 @@ Then we had to mount the motor to the base, using 2 strong paper clips we bent i
 ## DC MOTOR part 2
 To improve the design and the functionalty of the motor, we added another set of coils to the cork, with the same ammount of turnings(125) and repeated the process of soldering on the ends of the wires, this time assing another set of 2 copper tapes as commutators. We powered it and this is the result. 
 
-![video of motor](https://github.com/danstares/ROCO222/blob/master/Motor%20v1.jpg)
+![video of motor](https://github.com/danstares/ROCO222/blob/master/DC%20MOTOR%20WORKING.mp4)
 
 
 
