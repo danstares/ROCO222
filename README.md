@@ -1,5 +1,5 @@
 # ROCO222 coursework writeup
-## DC MOTOR
+## DC MOTOR Part 1
 Our first task was to creat a brushed DC motor using the following materials 
 - Cork
 - Strong magnets 
@@ -14,7 +14,16 @@ First step was was drive a nail through the centre of the cork, so it acts as a 
 
 ![Picture of motor](https://github.com/danstares/ROCO222/blob/master/Motor%20v1.jpg)
 
-Then we had to mount the motor to the base, using 2 strong paper clips we bent it into a shape in order to hold the motor then secured it to the wooden board using washers and screws; additionally we used another set of clips and screws to creat a stand for the magnets to be on both sides of the motor, making sure the polarity of the magnets are opposite so they induce a magnetic field. 
+Then we had to mount the motor to the base, using 2 strong paper clips we bent it into an 'L' shape in order to hold the motor then secured it to the wooden board using washers and screws; additionally we used another set of clips and screws to creat a stand for the magnets to be on both sides of the motor, making sure the polarity of the magnets are opposite so they induce a magnetic field. Finally we had to give the whole thing power, which we did by using thick cables and snipping off the insulation, using the wires on the inside as brushes. To secure the cables we used more paper clips to keep it in splace. After all that it was time to test it, setting the power supply to 12V on both ends we powered it up and with some fiddling and adjusting our prototype was finally working.
+
+## DC MOTOR part 2
+To improve the design and the functionalty of the motor, we added another set of coils to the cork, with the same ammount of turnings(125) and repeated the process of soldering on the ends of the wires, this time assing another set of 2 copper tapes as commutators. We powered it and this is the result. 
+
+![video of motor](https://github.com/danstares/ROCO222/blob/master/Motor%20v1.jpg)
+
+
+
+
 
 
 
