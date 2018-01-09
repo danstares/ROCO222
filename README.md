@@ -21,6 +21,14 @@ To improve the design and the functionalty of the motor, we added another set of
 
 ![video of motor](https://github.com/danstares/ROCO222/blob/master/DC%20MOTOR%20WORKING.mp4)
 
+As you can see its working fine and spins rather fast! 
+
+We then started working on an improved design, we designed a new motor using a CAD software and this is the first one we came up with.
+
+![Picture of 'star motor'()
+
+
+
 
 
 
