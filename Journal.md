@@ -29,7 +29,7 @@ We experimented with making more motors made of corks but non of these where as 
 
 We then started working on an improved design, we designed a new motor using a CAD software and this is the first one we came up with.
 
-![Picture of 'star motor'(https://github.com/danstares/ROCO222/blob/master/MotorV3.jpg)
+![Picture of 'star motor'](https://github.com/danstares/ROCO222/blob/master/MotorV3.jpg)
 
 Unfortunately this motor had numerous problems, the first was that the commutators didn't work due to too many individual bits of copper tape, which made soldering hard and also gave the commutator less contact points, so the brushes would skip past some commutators, making the motor usless essentially. So we scrapped the design and stuck with the original prototype.
 
