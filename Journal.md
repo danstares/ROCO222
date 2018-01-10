@@ -42,7 +42,7 @@ Unfortunately this motor had numerous problems, the first was that the commutato
 ## Stepper Motor
 
 ## Robotic Arm Mini Project
-We started familiarising ourselves with the basics of the servo. We hooked up the servo to the Arduino Nano board, with a 5V supply and the PWM pin  to DigitalOut 9. We then loaded up Arduio IDE and got to coding for the servo, and used a simple repeating code to get it to rotate back and forth to creat a sinewave of 0.2 Hz, this is the repeating code used.
+We started familiarising ourselves with the basics of the servo. We hooked up the servo to the Arduino Nano board, with a 5V supply and the PWM pin  to DigitalOut 9. We then loaded up Arduio IDE and got to coding for the servo, and used a simple repeating code to get it to rotate back and forth to creat a sinewave of 0.2 Hz, this is the repeating code used. 
 digitalWrite(9, HIGH); 
 delay(2);
 digitalWrite(9, LOW); 
@@ -51,6 +51,7 @@ digitalWrite(9, HIGH);
 delay(2);
 digitalWrite(9, LOW); 
 delay(78);
+
 
 
 
