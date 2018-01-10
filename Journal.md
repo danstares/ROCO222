@@ -61,7 +61,7 @@ Servo Myservo;
 int potpin = 0;
 int val;
 ``` 
-### Loop
+### Loop:
 ``` 
 myservo.attach(9);
 {
@@ -71,6 +71,6 @@ myservo.write(val1);
 delay(1);
 }
 ```
-
+After loading the code we tested it out with a potentiometer and it functioned well, despite the resolution of the potentiometer being quite low, which resulted in slight jiggles. After confirming it works, we then coded for another potentiometer, adding in additional lines and labeling each different potentiometer and servo. 
 
 
