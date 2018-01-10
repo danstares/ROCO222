@@ -14,10 +14,10 @@ First step was was drive a nail through the centre of the cork, so it acts as a 
 
 ![Picture of motor](https://github.com/danstares/ROCO222/blob/master/Motor%20v1.jpg)
 
-Then we had to mount the motor to the base, using 2 strong paper clips we bent it into an 'L' shape in order to hold the motor then secured it to the wooden board using washers and screws; additionally we used another set of clips and screws to creat a stand for the magnets to be on both sides of the motor, making sure the polarity of the magnets are opposite so they induce a magnetic field. Finally we had to give the whole thing power, which we did by using thick cables and snipping off the insulation, using the wires on the inside as brushes. To secure the cables we used more paper clips to keep it in splace. After all that it was time to test it, setting the power supply to 12V on both ends we powered it up and with some fiddling and adjusting our prototype was finally working.
+Then we had to mount the motor to the base, using 2 strong paper clips we bent it into an 'L' shape in order to hold the motor then secured it to the wooden board using washers and screws; additionally we used another set of clips and screws to creat a stand for the magnets to be on both sides of the motor, making sure the polarity of the magnets are opposite so they induce a magnetic field. Finally we had to give the whole thing power, which we did by using thick cables and snipping off the insulation, using the wires on the inside as brushes. After all that it was time to test it, setting the power supply to 12V on both ends we powered it up and with some fiddling and adjusting our prototype was finally working.
 
 ## DC MOTOR (improving design)
-To improve the design and the functionalty of the motor, we added another set of armature coils to the cork, with the same ammount of turnings(125) and repeated the process of soldering on the ends of the wires, this time assing another set of 2 copper tapes as commutators. We powered it and this is the result. 
+To improve the design and the functionalty of the motor, we added another set of armature coils to the cork, with the same ammount of turnings(125) and repeated the process of soldering on the ends of the wires, this time assing another set of 2 copper tapes as commutators. As for the brushes, we used more paper clips to secure it in place so we wouldnt have to hold it as the motor span. We powered it and this is the result. 
 
 ![video of motor](https://github.com/danstares/ROCO222/blob/master/DC%20MOTOR%20WORKING.mp4)
 
@@ -53,6 +53,24 @@ delay(2);
 digitalWrite(9, LOW); 
 delay(78);
 ``` 
+We then advanced to controlling the servo with potentiometers, with the same wiring for the servo but plugging in the potentiometer to an analog port (0), starting off with coding just one, I added a potentiometer to the circuit, using a breadboard to connect the 5V VDD and Ground to the rails so that I can easily plug stuff in without jamming multiple wires in a single port on the Uno. Here is a bit of the code 
+### Setup:
+``` 
+#include <Servo.h>
+Servo Myservo;
+int potpin = 0;
+int val;
+``` 
+### Loop
+``` 
+myservo.attach(9);
+{
+val = analogRead(potpin);
+val = map(val, 0, 1023, 0, 179); 
+myservo.write(val1);
+delay(1);
+}
+```
 
 
 
