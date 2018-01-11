@@ -38,11 +38,27 @@ Unfortunately this motor had numerous problems, the first was that the commutato
 ## Incremental encoder
 To measure the speed of the motor, we had to build a motor encoder, which consisted of an IR LED and an IR phototransistor. With the given cicuit diagram and a few resistors, we began to solder together the encoder circuit, with the LED and the phototransistor facing each other. For the encoder to pick up information, we palced a disc with a spacing cut into it, similar to the shape of pac-man. we fitted the disc onto the end of our working motor and secured the encoder to the base of the board. we then entered the simple code given and tested out the encoder. Unfortunately it was not working as we wished, the encoder ay have had a bad soldering job, but we decided to move on as time was paramount.
 
-![picutre of motor with disc]()
-![picture of encoder]()
+![picutre of motor with disc](https://github.com/danstares/ROCO222/blob/master/MotorWithDisc.jpg)
+![picture of encoder](https://github.com/danstares/ROCO222/blob/master/Encoder.jpg)
 
 ## Stepper Motor
-We were given a hybrid stepper motor, 
+We were given a hybrid stepper motor, we attached the Arudiono shield and plugged in the 4/6 wired needed for the encoder, 2 for power and ground and the other 2 for the 2 poles of the coils acting as magnets. For the code, we used the example code
+```
+digitalWrite(12, HIGH);
+digitalWrite(9, LOW); 
+analogWrite(3, 255); 
+delay(3000);
+digitalWrite(9, HIGH); 
+delay(1000);
+//backward @ half speed
+digitalWrite(12, LOW); 
+digitalWrite(9, LOW);
+analogWrite(3, 123); 
+delay(3000);
+digitalWrite(9, HIGH);
+delay(1000);
+```
+This basically turned on one coil at a time, syncronising on-and-off with the other coil so the permanent magnet in the middle can attraact them and cause the motor to spin.
 
 ## Robotic Arm Mini Project
 We started familiarising ourselves with the basics of the servo. We hooked up the servo to the Arduino Nano board, with a 5V supply and the PWM pin  to DigitalOut 9. We then loaded up Arduio IDE and got to coding for the servo, and used a simple repeating code to get it to rotate back and forth to creat a sinewave of 0.2 Hz, this is the repeating code used. 
@@ -75,5 +91,55 @@ delay(1);
 }
 ```
 After loading the code we tested it out with a potentiometer and it functioned well, despite the resolution of the potentiometer being quite low, which resulted in slight jiggles. After confirming it works, we then coded for another potentiometer, adding in additional lines and labeling each different potentiometer and servo. 
+
+After this we had to design 
+
+## Controlling Robotic Arm with ROS
+To do this, we first had to boot up Ubunto, as ROS is only functional on Linux. We plugged in our servo motors into our Nano board and used the following code to test if it works
+```
+void loop() {
+for (pos = 0; pos <= 180; pos += 1) {
+// in steps of 1 degree
+myservo.write(pos);
+delay(15);
+}
+for (pos = 180; pos >= 0; pos -= 1) {
+myservo.write(pos);
+delay(15);
+```
+This proved to be successful so we moved on to the nodes for ros on the terminal, We first had to start up roscore by typing in "roscore" into the terminal, after that we typed in "rviz" to initiate the program so we can visualise it, but the arduino IDE needed some add-ons or else the code would not work in conjunction with ROS, so using the terminal we installed the rosserial client and thus Arduino IDE was functional with ROS. Next was to control the servos with terminal commands, this can be achieved by coding as following 
+```
+#include <ros.h>
+#include <std_msgs/UInt16.h>
+#include <Servo.h>
+
+using namespace ros;
+
+NodeHandle nh;
+Servo servo;
+
+void cb( const std_msgs::UInt16& msg){
+servo.write(msg.data); // 0-180
+}
+
+Subscriber<std_msgs::UInt16> sub("servo", cb);
+
+void setup(){
+nh.initNode();
+nh.subscribe(sub);
+
+servo.attach(9); //attach it to pin 9
+}
+
+void loop(){
+nh.spinOnce();
+delay(1);
+}
+```
+Analysation of code: the line "Subscriber<std_msgs::UInt16> sub("servo", cb);" essentially subscribes the servo to a node we are working on, allowing the terminal to be linked to the servo control.
+
+Now by calling the rostopic pub command we were able to move our servo with just a terminal, although this proved to be very clunky and adding more servos would mean to code did not scale well, with tons of lines being added, so we looked to control it with RVIZ.
+
+We first had to download the sample .urdf file, which we stored in a directory of /project/Models, this allowed us to load the file onto rviz using the command "rosparam set robot_description" in conjunction with "rosrun robot_state_publisher robot_state_publisher", which links it to rviz and "rosrun joint_state_publisher joint_state_publisher _use_gui:=true" which 
 
 
