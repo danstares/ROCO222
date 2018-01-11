@@ -1,4 +1,4 @@
-# ROCO222 coursework writeup
+# ROCO222 Lab Journal
 ## DC MOTOR (buidling the prototype)
 Our first task was to creat a brushed DC motor using the following materials 
 - Cork
@@ -36,10 +36,13 @@ Unfortunately this motor had numerous problems, the first was that the commutato
 ![Picture of prototype](https://github.com/danstares/ROCO222/blob/master/motorv2.jpg)
 
 ## Incremental encoder
+To measure the speed of the motor, we had to build a motor encoder, which consisted of an IR LED and an IR phototransistor. With the given cicuit diagram and a few resistors, we began to solder together the encoder circuit, with the LED and the phototransistor facing each other. For the encoder to pick up information, we palced a disc with a spacing cut into it, similar to the shape of pac-man. we fitted the disc onto the end of our working motor and secured the encoder to the base of the board. we then entered the simple code given and tested out the encoder. Unfortunately it was not working as we wished, the encoder ay have had a bad soldering job, but we decided to move on as time was paramount.
 
-## Motor Control with arduino
+![picutre of motor with disc]()
+![picture of encoder]()
 
 ## Stepper Motor
+We were given a hybrid stepper motor, 
 
 ## Robotic Arm Mini Project
 We started familiarising ourselves with the basics of the servo. We hooked up the servo to the Arduino Nano board, with a 5V supply and the PWM pin  to DigitalOut 9. We then loaded up Arduio IDE and got to coding for the servo, and used a simple repeating code to get it to rotate back and forth to creat a sinewave of 0.2 Hz, this is the repeating code used. 
