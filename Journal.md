@@ -92,7 +92,14 @@ delay(1);
 ```
 After loading the code we tested it out with a potentiometer and it functioned well, despite the resolution of the potentiometer being quite low, which resulted in slight jiggles. After confirming it works, we then coded for another potentiometer, adding in additional lines and labeling each different potentiometer and servo. 
 
-After this we had to design 
+After this we had to design our very own robotic arm using a CAD software, we decided to go for a small arm as it would reduce the time it took to 3D print, after some design considerations we came up with this, with the stl files included
+
+![robotarm](https://github.com/danstares/ROCO222/blob/master/Robotic%20Arm.jpg)
+![arm stl](https://github.com/danstares/ROCO222/blob/master/Arm.stl)
+![crane arm stl](https://github.com/danstares/ROCO222/blob/master/Crane%20Arm.stl)
+![body stl](https://github.com/danstares/ROCO222/blob/master/Main%20Body.stl)
+
+However the base wasnt heavy enough to handle the movement, so we had to hold it down to the table as the servos were gyrating.
 
 ## Controlling Robotic Arm with ROS
 To do this, we first had to boot up Ubunto, as ROS is only functional on Linux. We plugged in our servo motors into our Nano board and used the following code to test if it works
@@ -140,6 +147,19 @@ Analysation of code: the line "Subscriber<std_msgs::UInt16> sub("servo", cb);" e
 
 Now by calling the rostopic pub command we were able to move our servo with just a terminal, although this proved to be very clunky and adding more servos would mean to code did not scale well, with tons of lines being added, so we looked to control it with RVIZ.
 
-We first had to download the sample .urdf file, which we stored in a directory of /project/Models, this allowed us to load the file onto rviz using the command "rosparam set robot_description" in conjunction with "rosrun robot_state_publisher robot_state_publisher", which links it to rviz and "rosrun joint_state_publisher joint_state_publisher _use_gui:=true" which 
+We first had to download the sample .urdf file, which we stored in a directory of /project/Models,
+![sample urdf](https://github.com/danstares/ROCO222/blob/master/arm%20in%20rviz.png)
+
+This allowed us to load the file onto rviz using the command "rosparam set robot_description" in conjunction with "rosrun robot_state_publisher robot_state_publisher", which links it to rviz and "rosrun joint_state_publisher joint_state_publisher _use_gui:=true" which pulled up a slider bar that controls the servos. We then designed ourn robotic arm onto the urdf file, by some good old fashioned trail and error by measuring the arm and typing it in the file, the urdf file is complete
+
+![urdf](https://github.com/danstares/ROCO222/blob/master/urdf.PNG)
+
+Loading up the nodes once more we adjusted the sliders and it was fully functional, with the origins of the pivot points where we wanted them, here is a video of it functioning
+
+![vid of rviz](https://github.com/danstares/ROCO222/blob/master/rosControl.mp4)
+
+As you can see there are 2 sliders for each servo and both are working fine.
+
+
 
 
